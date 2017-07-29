@@ -65,8 +65,6 @@ public class RandomArrayDemonstrator {
 			System.out.println("Array 4 Avg: " + arrayFour.averageValue());
 			System.out.println("Array 4 Contents:");
 			System.out.println(arrayFour);
-
 		}
 	}
-
 }
