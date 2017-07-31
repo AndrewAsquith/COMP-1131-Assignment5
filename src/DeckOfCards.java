@@ -1,3 +1,16 @@
+//==============================================
+// Andrew Asquith
+// COMP 1131
+// Assignment 5 
+// DeckOfCards Class 
+//
+// This is the DeckOfCards class.
+// It represents a deck of playing cards.
+// Methods are provided to shuffle the deck
+// and deal the top card (element 0) as well
+// as get the count of cards remaining in the deck
+//
+//==============================================
 
 // use the random class since we need bounds
 import java.util.Random;
@@ -12,6 +25,7 @@ public class DeckOfCards {
 		initializeDeck();
 	}
 
+	//private helper method to setup the deck
 	private void initializeDeck() {
 
 		// loop through the 4 different suits
@@ -59,19 +73,11 @@ public class DeckOfCards {
 		return cards.length;
 	}
 
-	// return the entire deck of cards
-	// this sort of breaks encapsulation since it will be references
-	// but this class makes no guarantees about anything
-	// except it's initial state of a full deck
-	// so if the caller wants to do something foolish, they are free to
-	public Card[] getCards() {
-		return cards;
-	}
-
-	//shuffle the deck of cards
+	// shuffle the deck of cards
 	// there's a name for this algorithm but I can't remember it
 	public void shuffle() {
 
+		// random number generator
 		Random rng = new Random();
 
 		// index of the random card to swap
@@ -97,5 +103,16 @@ public class DeckOfCards {
 			// put the random one in the current position
 			cards[current] = temp;
 		}
+	}
+
+	//toString implementation that prints all the cards currently in the deck
+	public String toString() {
+		String buffer = new String();
+
+		// for each card in the deck call the toString method
+		for (Card card : cards) {
+			buffer += card.toString() + System.lineSeparator();
+		}
+		return buffer;
 	}
 }
